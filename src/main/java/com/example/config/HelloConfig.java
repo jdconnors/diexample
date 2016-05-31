@@ -1,5 +1,6 @@
 package com.example.config;
 
+import com.example.services.HelloWorldFactory;
 import com.example.services.HelloWorldService;
 import com.example.services.HelloWorldServiceEnglishImpl;
 import com.example.services.HelloWorldServiceSpanishImpl;
@@ -14,14 +15,19 @@ import org.springframework.context.annotation.Profile;
 public class HelloConfig {
 
     @Bean
+    public HelloWorldFactory helloWorldFactory() {
+        return new HelloWorldFactory();
+    }
+
+    @Bean
     @Profile({"default","english"})
-    public HelloWorldService HelloWorldServiceEnglishImpl() {
-        return new HelloWorldServiceEnglishImpl();
+    public HelloWorldService HelloWorldServiceEnglish(HelloWorldFactory factory) {
+        return factory.createHelloWorldService("en");
     }
 
     @Bean
     @Profile("spanish")
-    public HelloWorldService HelloWorldServiceSpanishImpl() {
-        return new HelloWorldServiceSpanishImpl();
+    public HelloWorldService HelloWorldServiceSpanish(HelloWorldFactory factory) {
+        return factory.createHelloWorldService("es");
     }
 }
