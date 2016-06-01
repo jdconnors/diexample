@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 /**
  * Created by cpvedevj1 on 5/31/16.
  */
-@Controller
 public class GreetingController {
 
     private HelloWorldService helloWorldService;
@@ -18,19 +17,14 @@ public class GreetingController {
 
     private HelloWorldService helloWorldServiceFrench;
 
-    @Autowired
     public void setHelloWorldService(HelloWorldService helloWorldService) {
         this.helloWorldService = helloWorldService;
     }
 
-    @Autowired
-    @Qualifier("helloWorldServiceGerman")
     public void setHelloWorldServiceGerman(HelloWorldService helloWorldServiceGerman) {
         this.helloWorldServiceGerman = helloWorldServiceGerman;
     }
 
-    @Autowired
-    @Qualifier("french")
     public void setHelloWorldServiceFrench(HelloWorldService helloWorldServiceFrench) {
         this.helloWorldServiceFrench = helloWorldServiceFrench;
     }

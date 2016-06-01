@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
-//@ComponentScan("com.example")
 @ImportResource("classpath:/spring/spring-config.xml")
 public class DependencyInjectionApplication {
 
